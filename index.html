@@ -19,15 +19,30 @@
 
   <body>
     <div class="site-shell">
-      <header class="site-header" id="top">
+      <header class="site-header">
         <div class="container nav">
           <a class="brand" href="#top">Andrea Arroyo</a>
 
-          <nav class="nav-links" aria-label="Primary">
-            <a href="#work">Projects</a>
-            <a href="#lab">Ideas</a>
-            <a href="#contact">Contact</a>
+          <nav class="nav-links" aria-label="Portfolio tools and contact">
+            <div class="nav-built-with" aria-label="This portfolio website was built with Cursor, Figma Make and Codex">
+              <span>This portfolio website was built with</span>
+              <div class="nav-tools">
+                <div class="nav-tool">
+                  <img src="./assets/cursor-logo.png" alt="Cursor logo" />
+                  <span>Cursor</span>
+                </div>
 
+                <div class="nav-tool">
+                  <img src="./assets/figma-make-logo.png" alt="Figma Make logo" />
+                  <span>Figma Make</span>
+                </div>
+
+                <div class="nav-tool">
+                  <img src="./assets/codex-logo.png" alt="Codex logo" />
+                  <span>Codex</span>
+                </div>
+              </div>
+            </div>
             <div class="nav-actions">
               <a
                 href="https://www.linkedin.com/in/andrea-arroyo-aranibar/"
@@ -52,7 +67,7 @@
       </header>
 
       <main>
-        <section class="hero" aria-labelledby="hero-title">
+        <section class="hero" id="top" aria-labelledby="hero-title">
           <div class="hero-orb orb-red"></div>
           <div class="hero-orb orb-teal"></div>
           <div class="hero-orb orb-yellow"></div>
@@ -96,158 +111,116 @@
             </div>
 
             <div class="projects-grid">
-              <article class="project-card reveal">
-                <a href="#" class="project-media">
+              <article class="project-card reveal" data-project-id="kanoa" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="project-media">
                   <img
-                    src="https://images.unsplash.com/photo-1686061592689-312bbfb5c055?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                    alt="Ambient Focus Timer"
+                    src="./assets/projects/kanoa_portrait.png"
+                    alt="Kanoa Portrait"
                   />
                   <div class="project-overlay overlay-blue"></div>
                 
                   <div class="project-meta project-meta-overlay">
-                    <span class="project-date">2020-2022</span>
-                
                     <div class="project-meta-tags">
-                      <span>Creator</span>
-                      <span>·</span>
-                      <span>Personal</span>
+                      <span>Co-founder</span>
                     </div>
                   </div>
-                </a>
+                </div>
 
                 <div class="project-body">
                   <div class="project-title-row">
                     <h3>Kanoa</h3>
-                    <span class="tag tag-red">Entrepreneurship</span>
+                    <span class="tag tag-red">Co-founder</span>
                   </div>
                   <p>
-                    A pomodoro app that adapts its interface based on time of day
-                    and your focus patterns, using generative colors and
-                    soundscapes
+                    This is about the time I co-founded a startup, reached a funding round, and chose an MBA over a term sheet.
                   </p>
                 </div>
               </article>
 
-              <article class="project-card reveal">
-                <a href="#" class="project-media">
+              <article class="project-card reveal" data-project-id="atlas" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="project-media">
                   <img
-                    src="https://images.unsplash.com/photo-1686061592689-312bbfb5c055?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                    alt="Ambient Focus Timer"
+                    src="./assets/projects/lbs_agent_cup.JPG"
+                    alt="LBS AI Agent Cup"
                   />
                   <div class="project-overlay overlay-blue"></div>
                 
                   <div class="project-meta project-meta-overlay">
-                    <span class="project-date">December 2025</span>
-                
                     <div class="project-meta-tags">
-                      <span>Voice AI Agent</span>
+                      <span>AI product prototyping</span>
                     </div>
                   </div>
-                </a>
+                </div>
 
                 <div class="project-body">
                   <div class="project-title-row">
                     <h3>Atlas</h3>
-                    <span class="tag tag-teal">Winning competition</span>
+                    <span class="tag tag-teal">AI product prototyping</span>
                   </div>
                   <p>
-                    A pomodoro app that adapts its interface based on time of day
-                    and your focus patterns, using generative colors and
-                    soundscapes
+                    57,000 alumni, one voice agent, and my first real step into building AI products.
                   </p>
                 </div>
               </article>
 
-              <article class="project-card reveal">
-                <a href="#" class="project-media">
+              <article class="project-card reveal" data-project-id="name-to-face" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="project-media">
                   <img
-                    src="https://images.unsplash.com/photo-1686061592689-312bbfb5c055?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                    alt="Ambient Focus Timer"
+                    src="./assets/projects/game_full croped.png"
+                    alt="Name to Face"
                   />
                   <div class="project-overlay overlay-blue"></div>
                 
                   <div class="project-meta project-meta-overlay">
-                    <span class="project-date">February 2025</span>
-                
                     <div class="project-meta-tags">
-                      <span>Python</span>
-                      <span>·</span>
-                      <span>Google Cloud VM</span>
+                      <span>Vibe coding</span>
                     </div>
                   </div>
-                </a>
+                </div>
 
                 <div class="project-body">
                   <div class="project-title-row">
-                    <h3>Memory Game</h3>
-                    <span class="tag tag-teal">Side Project</span>
+                    <h3>Name to Face</h3>
+                    <span class="tag tag-teal">Vibe coding</span>
                   </div>
                   <p>
-                    A pomodoro app that adapts its interface based on time of day
-                    and your focus patterns, using generative colors and
-                    soundscapes
+                    A game I built for myself when 450 new faces made me want networking to feel more human.
                   </p>
                 </div>
               </article>
               
-              <article class="project-card reveal">
-                <a href="#" class="project-media">
+              <article class="project-card reveal" data-project-id="ava" role="button" tabindex="0" aria-haspopup="dialog">
+                <div class="project-media">
                   <img
-                    src="https://images.unsplash.com/photo-1686061592689-312bbfb5c055?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                    alt="Ambient Focus Timer"
+                    src="./assets/projects/ava_kitchen.png"
+                    alt="Ava"
                   />
                   <div class="project-overlay overlay-blue"></div>
                 
                   <div class="project-meta project-meta-overlay">
-                    <span class="project-date">November 2025</span>
-                
                     <div class="project-meta-tags">
-                      <span>Notion</span>
+                      <span>Product strategy</span>
                     </div>
                   </div>
-                </a>
+                </div>
 
                 <div class="project-body">
                   <div class="project-title-row">
-                    <h3>Notion templates</h3>
-                    <span class="tag tag-red">Side Project</span>
+                    <h3>Ava</h3>
+                    <span class="tag tag-red">Product strategy</span>
                   </div>
                   <p>
-                    A pomodoro app that adapts its interface based on time of day
-                    and your focus patterns, using generative colors and
-                    soundscapes
+                    A physical AI product for older adults, created to make inactivity less likely and independence easier to keep.
                   </p>
                 </div>
               </article>              
-            </div>
-
-            <div class="projects-built-with">
-              <p>And this portfolio website was built with</p>
-            
-              <div class="projects-tools">
-                <div class="project-tool">
-                  <img src="./assets/cursor-logo.png" alt="Cursor logo" />
-                  <span>Cursor</span>
-                </div>
-                
-                <div class="project-tool">
-                  <img src="./assets/figma-make-logo.png" alt="Figma Make logo" />
-                  <span>Figma Make</span>
-                </div>
-
-                <div class="project-tool">
-                  <img src="./assets/codex-logo.png" alt="Codex logo" />
-                  <span>Codex</span>
-                </div>
-              
-              </div>
             </div>
 
           </div>
         </section>
 
 
-        <section class="section" id="lab" aria-labelledby="lab-title">
+        <section class="section is-hidden" id="lab" aria-labelledby="lab-title">
           <div class="lab-orb"></div>
           <div class="container">
             <div class="section-heading reveal">
@@ -549,6 +522,18 @@
             Close
           </button>
         </div>
+      </div>
+    </div>
+
+    <div class="project-modal" id="projectModal" aria-hidden="true">
+      <div class="project-modal-backdrop" data-close-project-modal></div>
+
+      <div class="project-modal-panel" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" tabindex="-1">
+        <button class="project-modal-close" type="button" aria-label="Close project details" data-close-project-modal>
+          ×
+        </button>
+
+        <div class="project-modal-scroll scrollbar-thin" id="projectModalContent"></div>
       </div>
     </div>
 
