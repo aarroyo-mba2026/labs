@@ -11,6 +11,7 @@ const closeProjectModalButtons = document.querySelectorAll("[data-close-project-
 let activeProjectRevealObserver = null;
 let lastFocusedElement = null;
 let projectModalCloseTimer = null;
+const revealOffset = 220;
 
 const projectData = {
   kanoa: {
@@ -100,12 +101,39 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.1,
-    rootMargin: "0px 0px -80px 0px",
+    threshold: 0.05,
+    rootMargin: "0px 0px 160px 0px",
   }
 );
 
-revealElements.forEach((element) => observer.observe(element));
+const revealElement = (element) => {
+  element.classList.add("is-visible");
+  observer.unobserve(element);
+};
+
+const revealVisibleElements = () => {
+  revealElements.forEach((element) => {
+    if (element.classList.contains("is-visible")) return;
+
+    const elementTop = element.getBoundingClientRect().top;
+    if (elementTop <= window.innerHeight + revealOffset) {
+      revealElement(element);
+    }
+  });
+};
+
+revealElements.forEach((element) => {
+  if (element.closest(".hero")) {
+    element.classList.add("is-visible");
+    return;
+  }
+
+  observer.observe(element);
+});
+
+requestAnimationFrame(revealVisibleElements);
+window.addEventListener("scroll", revealVisibleElements, { passive: true });
+window.addEventListener("resize", revealVisibleElements);
 
 const updateBodyModalState = () => {
   const hasOpenSuccessModal = successModal?.classList.contains("is-visible");
@@ -208,12 +236,12 @@ const renderProjectModal = (project) => {
   if (!projectModalContent) return;
 
   const logoMarkup = project.logo
-    ? `<img src="${escapeHTML(project.logo)}" alt="${escapeHTML(project.title)} logo" onerror="this.remove()" />`
+    ? `<img src="${escapeHTML(project.logo)}" alt="${escapeHTML(project.title)} logo" decoding="async" onerror="this.remove()" />`
     : `<span>${escapeHTML(getProjectInitials(project.title))}</span>`;
 
   projectModalContent.innerHTML = `
     <div class="project-modal-cover">
-      <img src="${escapeHTML(project.coverImage)}" alt="${escapeHTML(project.title)} cover image" />
+      <img src="${escapeHTML(project.coverImage)}" alt="${escapeHTML(project.title)} cover image" decoding="async" />
     </div>
 
     <header class="project-modal-header">
