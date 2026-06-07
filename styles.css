@@ -1651,6 +1651,29 @@ h2 {
   }
 }
 
+@media (max-width: 760px) {
+  html.is-mobile-safari {
+    scroll-behavior: auto;
+  }
+
+  html.is-mobile-safari *,
+  html.is-mobile-safari *::before,
+  html.is-mobile-safari *::after {
+    animation: none !important;
+    transition: none !important;
+    transition-delay: 0ms !important;
+  }
+
+  html.is-mobile-safari .reveal,
+  html.is-mobile-safari .modal-reveal,
+  html.is-mobile-safari .project-modal-panel,
+  html.is-mobile-safari .project-modal-backdrop,
+  html.is-mobile-safari .project-modal-logo {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
