@@ -4,6 +4,9 @@ const revealElements = document.querySelectorAll(".reveal");
 const successModal = document.getElementById("formSuccessModal");
 const closeModalButtons = document.querySelectorAll("[data-close-modal]");
 const projectCards = document.querySelectorAll("[data-project-id]");
+const aiLabCarousel = document.querySelector("[data-ai-lab-carousel]");
+const aiLabPrevButton = document.querySelector("[data-ai-lab-prev]");
+const aiLabNextButton = document.querySelector("[data-ai-lab-next]");
 const projectModal = document.getElementById("projectModal");
 const projectModalPanel = projectModal?.querySelector(".project-modal-panel");
 const projectModalContent = document.getElementById("projectModalContent");
@@ -344,6 +347,35 @@ projectCards.forEach((card) => {
     }
   });
 });
+
+const updateAiLabControls = () => {
+  if (!aiLabCarousel || !aiLabPrevButton || !aiLabNextButton) return;
+
+  const maxScrollLeft = aiLabCarousel.scrollWidth - aiLabCarousel.clientWidth;
+  aiLabPrevButton.disabled = aiLabCarousel.scrollLeft <= 4;
+  aiLabNextButton.disabled = aiLabCarousel.scrollLeft >= maxScrollLeft - 4;
+};
+
+const scrollAiLabCarousel = (direction) => {
+  if (!aiLabCarousel) return;
+
+  const firstCard = aiLabCarousel.querySelector(".ai-lab-card");
+  const cardWidth = firstCard?.getBoundingClientRect().width ?? 360;
+  const gap = parseFloat(getComputedStyle(aiLabCarousel).columnGap) || 24;
+
+  aiLabCarousel.scrollBy({
+    left: direction * (cardWidth + gap),
+    behavior: "smooth",
+  });
+};
+
+if (aiLabCarousel && aiLabPrevButton && aiLabNextButton) {
+  aiLabPrevButton.addEventListener("click", () => scrollAiLabCarousel(-1));
+  aiLabNextButton.addEventListener("click", () => scrollAiLabCarousel(1));
+  aiLabCarousel.addEventListener("scroll", updateAiLabControls, { passive: true });
+  window.addEventListener("resize", updateAiLabControls);
+  requestAnimationFrame(updateAiLabControls);
+}
 
 closeProjectModalButtons.forEach((button) => {
   button.addEventListener("click", closeProjectModal);
