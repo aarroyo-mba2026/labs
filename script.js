@@ -11,7 +11,7 @@ const closeProjectModalButtons = document.querySelectorAll("[data-close-project-
 let activeProjectRevealObserver = null;
 let lastFocusedElement = null;
 let projectModalCloseTimer = null;
-const revealOffset = 220;
+const revealOffset = 80;
 
 const projectData = {
   kanoa: {
@@ -102,7 +102,7 @@ const observer = new IntersectionObserver(
   },
   {
     threshold: 0.05,
-    rootMargin: "0px 0px 160px 0px",
+    rootMargin: "0px 0px 40px 0px",
   }
 );
 
