@@ -408,6 +408,46 @@ h2 {
   gap: 2rem;
 }
 
+.projects-built-with {
+  margin: 4rem auto 0;
+  text-align: center;
+}
+
+.projects-built-with p {
+  margin: 0 0 1rem;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--muted);
+}
+
+.projects-tools {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  flex-wrap: wrap;
+}
+
+.project-tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 82px;
+  text-align: center;
+}
+
+.project-tool img {
+  width: auto;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+}
+
+.project-tool span {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
 .project-card {
   position: relative;
   display: flex;
@@ -1485,32 +1525,48 @@ h2 {
     width: min(calc(100% - 32px), var(--container));
   }
 
-  .nav,
+  .nav {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    padding: 16px 0;
+  }
+
   .footer {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .nav-links,
   .footer-links {
     flex-wrap: wrap;
     gap: 1rem;
   }
 
   .nav-links {
+    display: contents;
     width: 100%;
   }
 
-  .nav-built-with {
-    align-items: flex-start;
-    flex-direction: column;
+  .nav-actions {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
     gap: 0.5rem;
-    border-radius: 18px;
-    padding: 0.75rem;
   }
 
-  .nav-tools {
-    flex-wrap: wrap;
+  .nav-icon-link {
+    width: 34px;
+    height: 34px;
+  }
+
+  .nav-icon-link img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav-built-with {
+    display: none;
   }
 
   .section {
@@ -1564,11 +1620,19 @@ h2 {
 
   .hero {
     min-height: auto;
-    padding-top: 128px;
+    padding-top: 112px;
   }
 
   .hero-pill {
     font-size: 0.92rem;
+  }
+
+  .projects-built-with {
+    margin-top: 3rem;
+  }
+
+  .projects-tools {
+    gap: 1.25rem;
   }
 }
 
