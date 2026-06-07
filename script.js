@@ -95,8 +95,7 @@ const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+        revealElement(entry.target);
       }
     });
   },
@@ -107,27 +106,33 @@ const observer = new IntersectionObserver(
 );
 
 const revealElement = (element) => {
+  element.classList.remove("reveal-pending");
   element.classList.add("is-visible");
   observer.unobserve(element);
+};
+
+const isElementNearViewport = (element) => {
+  return element.getBoundingClientRect().top <= window.innerHeight + revealOffset;
 };
 
 const revealVisibleElements = () => {
   revealElements.forEach((element) => {
     if (element.classList.contains("is-visible")) return;
+    if (!element.classList.contains("reveal-pending")) return;
 
-    const elementTop = element.getBoundingClientRect().top;
-    if (elementTop <= window.innerHeight + revealOffset) {
+    if (isElementNearViewport(element)) {
       revealElement(element);
     }
   });
 };
 
 revealElements.forEach((element) => {
-  if (element.closest(".hero")) {
-    element.classList.add("is-visible");
+  if (element.closest(".hero") || isElementNearViewport(element)) {
+    revealElement(element);
     return;
   }
 
+  element.classList.add("reveal-pending");
   observer.observe(element);
 });
 

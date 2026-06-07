@@ -1459,16 +1459,22 @@ h2 {
 }
 
 .reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.reveal-pending {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 700ms ease, transform 700ms ease;
 }
 
 .reveal-delay {
   transition-delay: 120ms;
 }
 
-.reveal.is-visible {
+.reveal.is-visible,
+.reveal.reveal-pending.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1633,6 +1639,15 @@ h2 {
 
   .projects-tools {
     gap: 1.25rem;
+  }
+}
+
+@media (max-width: 760px) {
+  @supports (-webkit-touch-callout: none) {
+    .hero {
+      min-height: 108svh;
+      padding-bottom: 112px;
+    }
   }
 }
 
