@@ -469,28 +469,18 @@ h2 {
   grid-auto-columns: 300px;
   align-items: start;
   gap: 1rem;
-  margin-inline: -1px;
-  padding: 0 1px 1rem;
+  margin-inline: -8px;
+  padding: 8px 8px 1.25rem;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scroll-behavior: smooth;
   scroll-padding-inline: 8px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(26, 26, 26, 0.18) transparent;
-  mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+  scrollbar-width: none;
+  mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent 100%);
 }
 
 .ai-lab-carousel::-webkit-scrollbar {
-  height: 8px;
-}
-
-.ai-lab-carousel::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.ai-lab-carousel::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: rgba(26, 26, 26, 0.14);
+  display: none;
 }
 
 .ai-lab-card {
@@ -2044,7 +2034,7 @@ h2 {
   .ai-lab-carousel {
     grid-auto-columns: minmax(286px, 86vw);
     margin-inline: -16px;
-    padding-inline: 16px;
+    padding: 8px 16px 1.25rem;
     scroll-padding-inline: 16px;
     mask-image: none;
   }
@@ -2190,6 +2180,14 @@ h2 {
   html.is-mobile-safari .project-modal-logo {
     opacity: 1;
     transform: none;
+  }
+
+  html.is-mobile-safari .now-exploring-dot span:first-child {
+    animation: now-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite !important;
+  }
+
+  html.is-mobile-safari .now-exploring-cursor {
+    animation: now-cursor-blink 1.1s steps(1) infinite !important;
   }
 }
 
